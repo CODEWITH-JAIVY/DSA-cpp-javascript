@@ -27,7 +27,7 @@ int  Sort (int *arr , int size   ) {
 int main() {
     int arr [] = { 0,1,2,0,1,2,0,1,2,0} ;
     int size = sizeof(arr) / sizeof(arr[0]) ;
-
+    
     Sort ( arr , size  ) ;
 
     for ( int i  =0 ; i < size  ; i++ ) {
