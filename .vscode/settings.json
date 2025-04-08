@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "01BUBBLESORT.C": "cpp"
+        "01BUBBLESORT.C": "cpp",
+        "iostream": "cpp",
+        "functional": "cpp"
     }
 }
