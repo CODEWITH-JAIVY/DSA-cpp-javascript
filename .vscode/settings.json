@@ -2,6 +2,8 @@
     "files.associations": {
         "01BUBBLESORT.C": "cpp",
         "iostream": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "algorithm": "cpp",
+        "vector": "cpp"
     }
 }
