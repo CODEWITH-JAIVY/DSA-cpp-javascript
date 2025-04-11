@@ -1,8 +1,25 @@
 /*
 Given two binary strings a and b, return their sum as a binary string.
 
- 
+💡 Why Use '0' in Code?
+In this code:
 
+cpp
+Copy
+Edit
+sum += a[i--] - '0';
+We're not adding the string '0', we’re converting the character to an integer using:
+
+🧠 '1' - '0' gives 1
+This is ASCII subtraction:
+
+'1' has ASCII value 49
+
+'0' has ASCII value 48
+
+So: '1' - '0' = 49 - 48 = 1
+ 
+ 
 Example 1:
 
 Input: a = "11", b = "1"
