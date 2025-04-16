@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Search</title>
+</head>
+<body>
+  <div>
+    <p id="Element"></p>
+    <input type="number" id="target" placeholder="Enter number to search">
+    <button id="Search">Search</button>
+    <div id="Result"></div>
+  </div>
+
+  <script>
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const Element = document.getElementById("Element");
+    const targetInput = document.getElementById("target");
+    const Search = document.getElementById("Search");
+     const Result  = document.getElementById("Result")
+    // Display the array
+    Element.innerHTML = `Array: ${arr.join(", ")}`;
+
+    // Binary Search Function
+    function binarySearch(arr, target, start, end) {
+      while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+
+        if (arr[mid] === target) return mid;
+        else if (arr[mid] < target) start = mid + 1;
+        else end = mid - 1;
+      }
+      return -1;
+    }
+
+    Search.addEventListener("click", () => {
+      const number = parseInt(targetInput.value);
+      if (isNaN(number)) {
+        alert("Please enter a valid number!");
+        return;
+      }
+
+      const result = binarySearch(arr, number, 0, arr.length - 1);
+      if (result !== -1) {
+          Result.innerHTML=  (`Element found at index ${result}`);
+      } else {
+        Result.innerHTML= ("Element not found!");
+      }
+    });
+  </script>
+</body>
+</html>
