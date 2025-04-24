@@ -78,13 +78,72 @@ class Solution {
      }
       
       List*DeleteAtEnd (List*head) {
-      
-      }
-      
-      List*DeleteAtspecif( List*head){
-      
-      }
+        if ( head == nullptr) {
+          cout<<"List is empty " ;
+          return nullptr  ;
+        }
 
+        if  ( head->next == NULL) {
+          delete head ;
+          return nullptr ;
+        }
+
+       List *temp = head  ;
+       while( temp ->next->next != NULL) {
+        temp = temp ->next ;
+       }
+       delete temp->next  ;
+       temp->next =  NULL ;
+
+       display( head ) ;
+
+
+      }
+      
+
+      List* DeleteAtSpecific(List* head) {
+        int data;
+    
+        if (head == nullptr) {
+            cout << "List is empty." << endl;
+            return nullptr;
+        }
+    
+        cout << "Enter data to delete: ";
+        cin >> data;
+    
+        // Case: delete head
+        if (head->data == data) {
+            List* temp = head;
+            head = head->next;
+            delete temp;
+            display(head); // assuming display is defined
+            return head;
+        }
+    
+        List* temp = head;
+        List* prev = nullptr;
+    
+        // Traverse the list to find the node
+        while (temp != nullptr && temp->data != data) {
+            prev = temp;
+            temp = temp->next;
+        }
+    
+        // If node not found
+        if (temp == nullptr) {
+            cout << "Data not found in the list." << endl;
+            return head;
+        }
+    
+        // Unlink and delete the node
+        prev->next = temp->next;
+        delete temp;
+    
+        display(head); // Show updated list
+        return head;
+    }
+    
 
      
 
@@ -107,7 +166,7 @@ class Solution {
           DeleteAtEnd(head) ;
           break;
         case 3 :
-          DeleteAtspecif(head) ;
+        DeleteAtSpecific(head) ;
       }
    }
 };
